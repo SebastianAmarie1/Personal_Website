@@ -19,24 +19,3 @@
     background-color: whitesmoke;
     perspective: 900px;
 }
-.cube {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transform: translateZ(-300px);
-}
-
-.cube-face{
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    border: 1px solid red;
-}
-
-.cube-face-front  { background-color: pink;transform: rotateY(  0deg) translateZ(40px); }
-.cube-face-right  { background-color: yellow;transform: rotateY( 90deg) translateZ(40px); }
-.cube-face-back   { background-color: gray;transform: rotateY(180deg) translateZ(40px); }
-.cube-face-left   { background-color: green;transform: rotateY(-90deg) translateZ(40px); }
-.cube-face-top    { background-color: lightblue;transform: rotateX( 90deg) translateZ(40px); }
-.cube-face-bottom { background-color: lightcoral;transform: rotateX(-90deg) translateZ(40px); }

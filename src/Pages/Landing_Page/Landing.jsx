@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Landing-css.css"
 import LandingIntro from "../../Components/Landing_Components/Landing-Intro"
-
+import SingleCube from "../../Components/Cube/Single-Cube";
 
 function App() {
   return (
@@ -12,14 +12,7 @@ function App() {
 
 
       <div className="landing-cube">
-        <div className="cube">
-          <div className="cube-face cube-face-front fcc">Front</div>
-          <div className="cube-face cube-face-back fcc">Back</div>
-          <div className="cube-face cube-face-right fcc">Right</div>
-          <div className="cube-face cube-face-left fcc">Left</div>
-          <div className="cube-face cube-face-top fcc">Top</div>
-          <div className="cube-face cube-face-bottom fcc">Bottom</div>
-        </div>
+        <SingleCube X={25} Y={25} Z={0}/>
 
       </div>
     </div>
