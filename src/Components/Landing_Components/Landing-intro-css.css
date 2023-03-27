@@ -123,7 +123,6 @@
 .loading {
     position: absolute;
     z-index: 10;
-    left: 0;
     bottom: 0;
     margin-left: 5%;
     margin-bottom: 5%;

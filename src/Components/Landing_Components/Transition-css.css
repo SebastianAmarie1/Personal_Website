@@ -7,7 +7,7 @@
     background-position: center;
     background-attachment: fixed;
     opacity: 0;
-    transition: opacity 0.25s ease-in-out;
+
 }
 
 .transition-bypass{
@@ -16,6 +16,7 @@
 }
 
 .transition-main-deactive{
+    position: absolute;
     height: 100vh;
     width: 100%;
     opacity: 0;
@@ -25,6 +26,30 @@
 
 .transition-granted {
     font-size: 40px;;
+    animation: drop-down 4.5s forwards;
+}
+
+.transition-main-upwards{
+    animation: pull-up 3s forwards;
+}
+
+@keyframes pull-up {
+    0%{
+        transform:translateY(0px);
+    }
+    100%{
+        transform: translateY(-100vh);
+    }
+}
+
+@keyframes drop-down {
+    0%{
+        transform:translateY(-100vh);
+    }
+    100%{
+        transform: translateY(0px);
+        display: none;
+    }
 }
 
 .visible{

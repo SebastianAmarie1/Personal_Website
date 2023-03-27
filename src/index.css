@@ -35,6 +35,20 @@ pre{
     display: block !important;
 }
 
+/* Navbar */
+body::-webkit-scrollbar {
+  width: 3px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--clr-secondary); 
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 20px;       
+  background-color: var(--clr-primary);
+}
+
 /* Spinner */
 .lds-spinner {
     color: official;
