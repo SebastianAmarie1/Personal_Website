@@ -20,8 +20,6 @@ function SingleCube() {
     setIsDragging(false);
   }
 
-  console.log(topDegrees)
-
   function handleMouseMove(event) {
     if (!isDragging) {
       return;
@@ -33,6 +31,37 @@ function SingleCube() {
     const percentage = x / width;
     const newDegrees = Math.round(percentage * 365);
 
+    if (currentPos === 0) {
+      setTopDegrees(topDegrees + (newDegrees - topDegrees) * 0.01)
+    }
+    else if (currentPos === 1) {
+      setCenterDegrees(centerDegrees + (newDegrees - centerDegrees) * 0.01)
+    }
+    else if (currentPos === 2) {
+      setBottomDegrees(bottomDegrees + (newDegrees - bottomDegrees) * 0.01)
+    }
+  }
+
+  function handleTouchStart(pos) {
+    setIsDragging(true);
+    setCurrentPos(pos)
+  }
+
+  function handleTouchEnd() {
+    setIsDragging(false);
+    setCurrentPos(null)
+  }
+
+  function handleTouchMove(event) {
+    if (!isDragging) {
+      return;
+    }
+    const container = containerRef.current;
+    const rect = container.getBoundingClientRect();
+    const x = event.touches[0].clientX - rect.left;
+    const width = rect.width;
+    const percentage = x / width;
+    const newDegrees = Math.round(percentage * 365);
     if (currentPos === 0) {
       setTopDegrees(topDegrees + (newDegrees - topDegrees) * 0.01)
     }
@@ -86,6 +115,9 @@ function SingleCube() {
               onWheel={handleWheel}
               onMouseLeave={handleMouseLeave}
               onMouseEnter={() => handleMouseEnter(2)}
+              onTouchStart={() => handleTouchStart(2)}
+              onTouchEnd={handleTouchEnd}
+              onTouchMove={handleTouchMove}
           >
             <div className="cube-face cube-face-front-bottom shorter fcc">
               <div className="cube-face-front-indvs"></div>
@@ -140,6 +172,9 @@ function SingleCube() {
               onWheel={handleWheel}
               onMouseLeave={handleMouseLeave}
               onMouseEnter={() => handleMouseEnter(1)}
+              onTouchStart={() => handleTouchStart(1)}
+              onTouchEnd={handleTouchEnd}
+              onTouchMove={handleTouchMove}
             >
             <div className="cube-face cube-face-front-center shorter fcc">
               <div className="cube-face-front-indvs"></div>
@@ -193,7 +228,10 @@ function SingleCube() {
               onMouseMove={handleMouseMove}
               onWheel={handleWheel}
               onMouseLeave={handleMouseLeave}
-              onMouseEnter={() => handleMouseEnter(0)}>
+              onMouseEnter={() => handleMouseEnter(0)} 
+              onTouchStart={() => handleTouchStart(0)}
+              onTouchEnd={handleTouchEnd}
+              onTouchMove={handleTouchMove}>
             
             <div className="cube-face cube-face-front-top shorter fcc">
                 <div className="cube-face-front-indvs"></div>
