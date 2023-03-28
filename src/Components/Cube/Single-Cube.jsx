@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import "./Single-Cube-css.css"
 
@@ -6,42 +6,59 @@ function SingleCube() {
 
 
   const [isDragging, setIsDragging] = useState(false);
-  const [bottomDegrees, setBottomDegrees] = useState(80);
-  const [centerDegree, setCenterDegree] = useState(30);
-  const [topDegree, setTopDegree] = useState(0);
   const [currentPos, setCurrentPos] = useState(null)
+  const [topDegrees, setTopDegrees] = useState(80)
+  const [centerDegrees, setCenterDegrees] = useState(30)
+  const [bottomDegrees, setBottomDegrees] = useState(-10)
+  const containerRef = useRef(null);
 
   function handleMouseDown() {
     setIsDragging(true);
   }
-  console.log(bottomDegrees, "Bottom")
-  console.log(centerDegree, "center")
-  console.log(topDegree, "Top")
 
   function handleMouseUp() {
     setIsDragging(false);
   }
 
+  console.log(topDegrees)
+
   function handleMouseMove(event) {
     if (!isDragging) {
       return;
     }
-
-    const slider = event.target;
-    const rect = slider.getBoundingClientRect();
+    const container = containerRef.current;
+    const rect = container.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const width = rect.width;
     const percentage = x / width;
     const newDegrees = Math.round(percentage * 365);
-    if (currentPos === 2){
-      setBottomDegrees(bottomDegrees + (newDegrees - bottomDegrees) * 0.01);
+
+    if (currentPos === 0) {
+      setTopDegrees(topDegrees + (newDegrees - topDegrees) * 0.01)
     }
-    else if (currentPos === 1){
-      setCenterDegree(bottomDegrees + (newDegrees - bottomDegrees) * 0.01);
+    else if (currentPos === 1) {
+      setCenterDegrees(centerDegrees + (newDegrees - centerDegrees) * 0.01)
     }
-    else if (currentPos === 0){
-      setTopDegree(bottomDegrees + (newDegrees - bottomDegrees) * 0.01);
+    else if (currentPos === 2) {
+      setBottomDegrees(bottomDegrees + (newDegrees - bottomDegrees) * 0.01)
     }
+  }
+
+  function handleWheel(event) {
+    let newDegrees
+    if (currentPos === 0) {
+      newDegrees = topDegrees - event.deltaY;
+      setTopDegrees(newDegrees);
+    }
+    else if (currentPos === 1) {
+      newDegrees = centerDegrees - event.deltaY;
+      setCenterDegrees(newDegrees);
+    }
+    else if (currentPos === 2) {
+      newDegrees = bottomDegrees - event.deltaY;
+      setBottomDegrees(newDegrees);
+    }
+    
   }
 
   function handleMouseLeave() {
@@ -53,6 +70,8 @@ function SingleCube() {
     setCurrentPos(pos)
   }
 
+
+
   return (
     <>
       {/*Bottom holder cube*/}
@@ -60,11 +79,13 @@ function SingleCube() {
 
           {/* Bottom Holder Cube*/}
           <div style={{'--BY': bottomDegrees + 'deg'}} className="cube-holder-bottom-container"
+              ref={containerRef}
               onMouseDown={handleMouseDown}
               onMouseUp={handleMouseUp}
               onMouseMove={handleMouseMove}
+              onWheel={handleWheel}
               onMouseLeave={handleMouseLeave}
-              onMouseEnter={() => {handleMouseEnter(2)}}
+              onMouseEnter={() => handleMouseEnter(2)}
           >
             <div className="cube-face cube-face-front-bottom shorter fcc">
               <div className="cube-face-front-indvs"></div>
@@ -111,13 +132,15 @@ function SingleCube() {
           </div>
 
           {/* Center Holder Cube*/}
-          <div style={{'--CY': centerDegree + 'deg'}} className="cube-holder-center-container"
-            onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            onMouseEnter={() => {handleMouseEnter(1)}}
-          >
+          <div style={{'--CY': centerDegrees + 'deg'}} className="cube-holder-center-container"
+              ref={containerRef}
+              onMouseDown={handleMouseDown}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+              onWheel={handleWheel}
+              onMouseLeave={handleMouseLeave}
+              onMouseEnter={() => handleMouseEnter(1)}
+            >
             <div className="cube-face cube-face-front-center shorter fcc">
               <div className="cube-face-front-indvs"></div>
               <div className="cube-face-front-indvs"></div>
@@ -163,13 +186,14 @@ function SingleCube() {
           </div>
 
           {/* Top Holder Cube*/}
-          <div style={{'--TY': topDegree + 'deg'}} className="cube-holder-top-container" 
+          <div style={{'--TY': topDegrees + 'deg'}} className="cube-holder-top-container" 
+              ref={containerRef}
               onMouseDown={handleMouseDown}
               onMouseUp={handleMouseUp}
               onMouseMove={handleMouseMove}
+              onWheel={handleWheel}
               onMouseLeave={handleMouseLeave}
-              onMouseEnter={() => {handleMouseEnter(0)}}
-              >
+              onMouseEnter={() => handleMouseEnter(0)}>
             
             <div className="cube-face cube-face-front-top shorter fcc">
                 <div className="cube-face-front-indvs"></div>
@@ -191,16 +215,16 @@ function SingleCube() {
               <div className="cube-face-front-indvs"></div>
               <div className="cube-face-front-indvs"></div>
             </div>
-            <div className="cube-face cube-face-top-top">
-              <div style={{backgroundColor: 'blue'}} className="cube-face-front-indv slider"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
+              <div className="cube-face cube-face-top-top">
+                <div className="cube-face-front-indv slider"></div>
+                <div className="cube-face-front-indv"></div>
+                <div className="cube-face-front-indv"></div>
+                <div className="cube-face-front-indv"></div>
+                <div className="cube-face-front-indv"></div>
+                <div className="cube-face-front-indv"></div>
+                <div className="cube-face-front-indv"></div>
+                <div className="cube-face-front-indv"></div>
+                <div className="cube-face-front-indv"></div>
             </div>
             <div className="cube-face cube-face-bottom-top fcc">
               <div className="cube-face-front-indv"></div>

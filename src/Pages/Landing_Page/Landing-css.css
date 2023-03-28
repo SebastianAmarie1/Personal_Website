@@ -16,6 +16,5 @@
     left: calc(50% - 150px);
     height: 300px;
     width: 300px;
-    background-color: whitesmoke;
     perspective: 850px;
 }
