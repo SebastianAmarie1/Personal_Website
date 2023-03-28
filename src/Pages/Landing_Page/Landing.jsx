@@ -12,7 +12,7 @@ function App() {
 
 
       <div className="landing-cube">
-        <SingleCube X={25} Y={25} Z={0}/>
+        <SingleCube />
 
       </div>
     </div>
