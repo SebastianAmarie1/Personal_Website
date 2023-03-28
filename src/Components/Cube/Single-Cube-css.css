@@ -9,6 +9,7 @@
     transform: 
     translateX(50px) translateY(0px) translateZ(-200px) 
     rotateX(-35deg) rotateY(40deg) rotateZ(-5deg);
+    
 }
 
 .cube-face{
@@ -30,6 +31,7 @@
 .cube-face-front-indv{
     height: 32%;
     width: 32%;
+    border-radius: 7px;
     background-color: green;
     border: 2px solid black;
 }
@@ -37,9 +39,49 @@
 .cube-face-front-indvs{
     height: 100%;
     width: 32%;
+    border-radius: 7px;
     background-color: green;
     border: 2px solid black;
+    
 }
+
+.cube-face-front-indv:hover,
+.cube-face-front-indvs:hover
+{
+    background-color: lightblue;
+}
+
+.cube-holder-top-container {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transition: transform 0.1s;
+    transform: rotateY(var(--TY));
+    transform-origin: center center center !important;
+}
+
+.cube-holder-center-container{
+    position:absolute;
+    width: 200px;
+    height: 200px;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    transform: rotateY(var(--CY));
+    transform-origin: center center center !important;
+}
+
+.cube-holder-bottom-container{
+    position:absolute;
+    width: 200px;
+    height: 200px;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    transform: rotateY(var(--BY));
+    transform-origin: center center center !important;
+
+}
+
 
 
 /* Cube Holder Bottom */
@@ -54,15 +96,15 @@
 /* Cube Holder Center */
 .cube-face-front-center  { transform: rotateY(0deg) translateZ(100px) translateY(100px); }
 .cube-face-right-center  { transform: rotateY( 90deg) translateZ(100px) translateY(100px); }
-.cube-face-back-center  { transform: rotateY(180deg) translateZ(100px) translateY(100px); }
+.cube-face-back-center   { transform: rotateY(180deg) translateZ(100px) translateY(100px); }
 .cube-face-left-center   { transform: rotateY(-90deg) translateZ(100px) translateY(100px); }
-.cube-face-top-center   {  transform: rotateX( 90deg) translateZ(0px) ; }
+.cube-face-top-center    { transform: rotateX( 90deg) translateZ(0px) ; }
 .cube-face-bottom-center { transform: rotateX(-90deg) translateZ(70px); }
 
 /* Cube Holder Top */
 .cube-face-front-top  { transform: rotateY(0deg) translateZ(100px) translateY(20px); }
 .cube-face-right-top  { transform: rotateY( 90deg) translateZ(100px) translateY(20px); }
-.cube-face-back-top  { transform: rotateY(180deg) translateZ(100px) translateY(20px); }
+.cube-face-back-top   { transform: rotateY(180deg) translateZ(100px) translateY(20px); }
 .cube-face-left-top   { transform: rotateY(-90deg) translateZ(100px) translateY(20px); }
-.cube-face-top-top   { transform: rotateX( 90deg) translateZ(80px) ; }
+.cube-face-top-top    { transform: rotateX( 90deg) translateZ(80px) ; }
 .cube-face-bottom-top { transform: rotateX(-90deg) translateZ(-10px); }
