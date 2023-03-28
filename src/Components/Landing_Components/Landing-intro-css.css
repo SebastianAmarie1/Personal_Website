@@ -122,7 +122,7 @@
 
 .loading {
     position: absolute;
-    z-index: 10;
+    z-index: 1000;
     bottom: 0;
     margin-left: 5%;
     margin-bottom: 5%;

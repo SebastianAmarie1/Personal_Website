@@ -140,26 +140,26 @@ function SingleCube() {
               <div className="cube-face-front-indvs"></div>
             </div>
             <div className="cube-face cube-face-top-bottom fcc">
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
             </div>
             <div className="cube-face cube-face-bottom-bottom fcc">
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
             </div>
           </div>
 
@@ -197,26 +197,26 @@ function SingleCube() {
               <div className="cube-face-front-indvs"></div>
             </div>
             <div className="cube-face cube-face-top-center fcc">
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
             </div>
             <div className="cube-face cube-face-bottom-center fcc">
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
             </div>
           </div>
 
@@ -254,7 +254,7 @@ function SingleCube() {
               <div className="cube-face-front-indvs"></div>
             </div>
               <div className="cube-face cube-face-top-top">
-                <div className="cube-face-front-indv slider"></div>
+                <div className="cube-face-front-indv f1 slider"></div>
                 <div className="cube-face-front-indv"></div>
                 <div className="cube-face-front-indv"></div>
                 <div className="cube-face-front-indv"></div>
@@ -265,15 +265,15 @@ function SingleCube() {
                 <div className="cube-face-front-indv"></div>
             </div>
             <div className="cube-face cube-face-bottom-top fcc">
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
-              <div className="cube-face-front-indv"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d"></div>
             </div>
           </div>
 

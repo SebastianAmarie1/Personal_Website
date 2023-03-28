@@ -41,6 +41,7 @@ function Transition() {
       :
         <div style={{'--index': 13}} className={`transition-main-deactive ${isVisible && 'visible'} ${loadLanding && 'transition-main-upwards'} fcc`}>
           <h1 className="code transition-granted"> &lt; Bypass Complete &gt;</h1>
+          
         </div>
     }
     </>
