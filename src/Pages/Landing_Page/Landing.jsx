@@ -20,8 +20,7 @@ function App() {
     { currentPhase==="Landing Page" &&
       <div className="landing-cube">
         <SingleCube />
-        <div className="landing-cube-blur fcc">
-        </div>
+        <div className="landing-cube-blur fcc" />
       </div>
     }
     </div>

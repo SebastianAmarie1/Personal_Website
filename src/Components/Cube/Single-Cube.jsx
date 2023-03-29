@@ -1,26 +1,50 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import "./Single-Cube-css.css"
 
 function SingleCube() {
 
-
+  const [isSolved, setIsSolved] = useState(false)
   const [isDragging, setIsDragging] = useState(false);
   const [currentPos, setCurrentPos] = useState(null)
   const [topDegrees, setTopDegrees] = useState(80)
-  const [centerDegrees, setCenterDegrees] = useState(30)
-  const [bottomDegrees, setBottomDegrees] = useState(-10)
+  const [centerDegrees, setCenterDegrees] = useState(-25)
+  const [bottomDegrees, setBottomDegrees] = useState(0)
   const containerRef = useRef(null);
 
+  useEffect(() => {
+    const tDegree = topDegrees % 365
+    const cDegree = centerDegrees % 365
+    const bDegree = bottomDegrees % 365
+
+    if (
+      Math.abs(tDegree - cDegree) <= 10 &&
+      Math.abs(cDegree - bDegree) <= 10 &&
+      Math.abs(tDegree - bDegree) <= 10
+    ) {
+      setIsSolved(true)
+      setTopDegrees(cDegree)
+      setCenterDegrees(cDegree)
+      setBottomDegrees(cDegree)
+    }
+
+  }, [topDegrees, centerDegrees, bottomDegrees])
+
   function handleMouseDown() {
-    setIsDragging(true);
+    if (isSolved){
+      setIsDragging(false)
+    } else{
+      setIsDragging(true);
+    }
   }
 
   function handleMouseUp() {
+    if (isSolved) return
     setIsDragging(false);
   }
 
   function handleMouseMove(event) {
+    if (isSolved) return
     if (!isDragging) {
       return;
     }
@@ -43,16 +67,19 @@ function SingleCube() {
   }
 
   function handleTouchStart(pos) {
+    if (isSolved) return
     setIsDragging(true);
     setCurrentPos(pos)
   }
 
   function handleTouchEnd() {
+    if (isSolved) return
     setIsDragging(false);
     setCurrentPos(null)
   }
 
   function handleTouchMove(event) {
+    if (isSolved) return
     if (!isDragging) {
       return;
     }
@@ -74,6 +101,7 @@ function SingleCube() {
   }
 
   function handleWheel(event) {
+    if (isSolved) return
     let newDegrees
     if (currentPos === 0) {
       newDegrees = topDegrees - event.deltaY;
@@ -91,11 +119,13 @@ function SingleCube() {
   }
 
   function handleMouseLeave() {
+    if (isSolved) return
     setIsDragging(false);
     setCurrentPos(null)
   }
 
   function handleMouseEnter(pos) {
+    if (isSolved) return
     setCurrentPos(pos)
   }
 
@@ -120,46 +150,46 @@ function SingleCube() {
               onTouchMove={handleTouchMove}
           >
             <div className="cube-face cube-face-front-bottom shorter fcc">
-              <div className="cube-face-front-indvs"></div>
-              <div className="cube-face-front-indvs"></div>
-              <div className="cube-face-front-indvs"></div>
+              <div className="cube-face-front-indvs d g"></div>
+              <div className="cube-face-front-indvs  f2 d g"></div>
+              <div className="cube-face-front-indvs d g"></div>
             </div>
             <div className="cube-face cube-face-back-bottom shorter fcc">
-              <div className="cube-face-front-indvs"></div>
-              <div className="cube-face-front-indvs"></div>
-              <div className="cube-face-front-indvs"></div>
+              <div className="cube-face-front-indvs d w"></div>
+              <div className="cube-face-front-indvs d w"></div>
+              <div className="cube-face-front-indvs d w"></div>
             </div>
             <div className="cube-face cube-face-right-bottom shorter fcc">
-              <div className="cube-face-front-indvs"></div>
-              <div className="cube-face-front-indvs"></div>
-              <div className="cube-face-front-indvs"></div>
+              <div className="cube-face-front-indvs d y"></div>
+              <div className="cube-face-front-indvs d y"></div>
+              <div className="cube-face-front-indvs d y"></div>
             </div>
             <div className="cube-face cube-face-left-bottom shorter fcc">
-              <div className="cube-face-front-indvs"></div>
-              <div className="cube-face-front-indvs"></div>
-              <div className="cube-face-front-indvs"></div>
+              <div className="cube-face-front-indvs d r"></div>
+              <div className="cube-face-front-indvs d r"></div>
+              <div className="cube-face-front-indvs d r"></div>
             </div>
             <div className="cube-face cube-face-top-bottom fcc">
-              <div className="cube-face-front-indv a"></div>
-              <div className="cube-face-front-indv a"></div>
-              <div className="cube-face-front-indv a"></div>
-              <div className="cube-face-front-indv a"></div>
-              <div className="cube-face-front-indv a"></div>
-              <div className="cube-face-front-indv a"></div>
-              <div className="cube-face-front-indv a"></div>
-              <div className="cube-face-front-indv a"></div>
-              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a d"></div>
+              <div className="cube-face-front-indv a d"></div>
+              <div className="cube-face-front-indv a d"></div>
+              <div className="cube-face-front-indv a d"></div>
+              <div className="cube-face-front-indv a d"></div>
+              <div className="cube-face-front-indv a d"></div>
+              <div className="cube-face-front-indv a d"></div>
+              <div className="cube-face-front-indv a d"></div>
+              <div className="cube-face-front-indv a d"></div>
             </div>
             <div className="cube-face cube-face-bottom-bottom fcc">
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv d p"></div>
+              <div className="cube-face-front-indv d p"></div>
+              <div className="cube-face-front-indv d p"></div>
+              <div className="cube-face-front-indv d p"></div>
+              <div className="cube-face-front-indv d p"></div>
+              <div className="cube-face-front-indv d p"></div>
+              <div className="cube-face-front-indv d p"></div>
+              <div className="cube-face-front-indv d p"></div>
+              <div className="cube-face-front-indv d p"></div>
             </div>
           </div>
 
@@ -177,46 +207,46 @@ function SingleCube() {
               onTouchMove={handleTouchMove}
             >
             <div className="cube-face cube-face-front-center shorter fcc">
-              <div className="cube-face-front-indvs"></div>
-              <div className="cube-face-front-indvs"></div>
-              <div className="cube-face-front-indvs"></div>
+              <div className="cube-face-front-indvs d g"></div>
+              <div className="cube-face-front-indvs d g"></div>
+              <div className="cube-face-front-indvs d g"></div>
             </div>
             <div className="cube-face cube-face-back-center shorter fcc">
-              <div className="cube-face-front-indvs"></div>
-              <div className="cube-face-front-indvs"></div>
-              <div className="cube-face-front-indvs"></div>
+              <div className="cube-face-front-indvs d w"></div>
+              <div className="cube-face-front-indvs d w"></div>
+              <div className="cube-face-front-indvs d w"></div>
             </div>
             <div className="cube-face cube-face-right-center shorter fcc">
-              <div className="cube-face-front-indvs"></div>
-              <div className="cube-face-front-indvs"></div>
-              <div className="cube-face-front-indvs"></div>
+              <div className="cube-face-front-indvs d y"></div>
+              <div className="cube-face-front-indvs d y"></div>
+              <div className="cube-face-front-indvs d y"></div>
             </div>
             <div className="cube-face cube-face-left-center shorter fcc">
-              <div className="cube-face-front-indvs"></div>
-              <div className="cube-face-front-indvs"></div>
-              <div className="cube-face-front-indvs"></div>
+              <div className="cube-face-front-indvs d r"></div>
+              <div className="cube-face-front-indvs d r"></div>
+              <div className="cube-face-front-indvs d r"></div>
             </div>
             <div className="cube-face cube-face-top-center fcc">
-              <div className="cube-face-front-indv a"></div>
-              <div className="cube-face-front-indv a"></div>
-              <div className="cube-face-front-indv a"></div>
-              <div className="cube-face-front-indv a"></div>
-              <div className="cube-face-front-indv a"></div>
-              <div className="cube-face-front-indv a"></div>
-              <div className="cube-face-front-indv a"></div>
-              <div className="cube-face-front-indv a"></div>
-              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a "></div>
+              <div className="cube-face-front-indv a "></div>
+              <div className="cube-face-front-indv a "></div>
+              <div className="cube-face-front-indv a "></div>
+              <div className="cube-face-front-indv a "></div>
+              <div className="cube-face-front-indv a "></div>
+              <div className="cube-face-front-indv a "></div>
+              <div className="cube-face-front-indv a "></div>
+              <div className="cube-face-front-indv a "></div>
             </div>
             <div className="cube-face cube-face-bottom-center fcc">
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a"></div>
             </div>
           </div>
 
@@ -234,46 +264,46 @@ function SingleCube() {
               onTouchMove={handleTouchMove}>
             
             <div className="cube-face cube-face-front-top shorter fcc">
-                <div className="cube-face-front-indvs"></div>
-                <div className="cube-face-front-indvs"></div>
-                <div className="cube-face-front-indvs"></div>
+                <div className="cube-face-front-indvs d g"></div>
+                <div className="cube-face-front-indvs d g"></div>
+                <div className="cube-face-front-indvs d g"></div>
             </div>
             <div className="cube-face cube-face-back-top shorter fcc">
-              <div className="cube-face-front-indvs"></div>
-              <div className="cube-face-front-indvs"></div>
-              <div className="cube-face-front-indvs"></div>
+              <div className="cube-face-front-indvs d w"></div>
+              <div className="cube-face-front-indvs d w"></div>
+              <div className="cube-face-front-indvs d w"></div>
             </div>
             <div className="cube-face cube-face-right-top shorter fcc">
-              <div className="cube-face-front-indvs"></div>
-              <div className="cube-face-front-indvs"></div>
-              <div className="cube-face-front-indvs"></div>
+              <div className="cube-face-front-indvs d y"></div>
+              <div className="cube-face-front-indvs d y" ></div>
+              <div className="cube-face-front-indvs d y"></div>
             </div>
             <div className="cube-face cube-face-left-top shorter fcc">
-              <div className="cube-face-front-indvs"></div>
-              <div className="cube-face-front-indvs"></div>
-              <div className="cube-face-front-indvs"></div>
+              <div className="cube-face-front-indvs d r"></div>
+              <div className="cube-face-front-indvs d r"></div>
+              <div className="cube-face-front-indvs d r"></div>
             </div>
               <div className="cube-face cube-face-top-top">
-                <div className="cube-face-front-indv f1 slider"></div>
-                <div className="cube-face-front-indv"></div>
-                <div className="cube-face-front-indv"></div>
-                <div className="cube-face-front-indv"></div>
-                <div className="cube-face-front-indv"></div>
-                <div className="cube-face-front-indv"></div>
-                <div className="cube-face-front-indv"></div>
-                <div className="cube-face-front-indv"></div>
-                <div className="cube-face-front-indv"></div>
+                <div className="cube-face-front-indv d slider"></div>
+                <div className="cube-face-front-indv d"></div>
+                <div className="cube-face-front-indv d"></div>
+                <div className="cube-face-front-indv d"></div>
+                <div className="cube-face-front-indv d "></div>
+                <div className="cube-face-front-indv d"></div>
+                <div className="cube-face-front-indv d"></div>
+                <div className="cube-face-front-indv d"></div>
+                <div className="cube-face-front-indv d"></div>
             </div>
             <div className="cube-face cube-face-bottom-top fcc">
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
-              <div className="cube-face-front-indv d"></div>
+              <div className="cube-face-front-indv a d"></div>
+              <div className="cube-face-front-indv a d"></div>
+              <div className="cube-face-front-indv a"></div>
+              <div className="cube-face-front-indv a d"></div>
+              <div className="cube-face-front-indv a d"></div>
+              <div className="cube-face-front-indv a d"></div>
+              <div className="cube-face-front-indv a d"></div>
+              <div className="cube-face-front-indv a d"></div>
+              <div className="cube-face-front-indv a d"></div>
             </div>
           </div>
 

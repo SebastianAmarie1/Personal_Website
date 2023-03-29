@@ -1,4 +1,7 @@
 
+:root {
+    --clr-side: var(--clr-contrast);
+}
 
 .cube {
     position: relative;
@@ -27,14 +30,15 @@
 .cube-face{
     display: flex;
     flex-wrap: wrap;
-    gap: 2px;
+    gap: 1px;
 }
 
 .cube-face-front-indv{
     height: 32%;
     width: 32%;
     border-radius: 7px;
-    background-color: green;
+    background-size: cover;
+    background-color: var(--clr-side);
     border: 2px solid black;
 }
 
@@ -42,15 +46,15 @@
     height: 100%;
     width: 32%;
     border-radius: 7px;
-    background-color: green;
+    background-size: cover;
+    background-color: var(--clr-side);
     border: 2px solid black;
-    
 }
 
 .cube-face-front-indv:hover,
 .cube-face-front-indvs:hover
 {
-    background-color: lightblue;
+    filter: brightness(150%);
 }
 
 .cube-holder-top-container {
@@ -60,6 +64,7 @@
     transform-style: preserve-3d;
     transition: transform 0.3s;
     transform: rotateY(var(--TY));
+    cursor: pointer;
     transform-origin: center center center !important;
 }
 
@@ -70,6 +75,7 @@
     transition: transform 0.3s;
     transform-style: preserve-3d;
     transform: rotateY(var(--CY));
+    cursor: pointer;
     transform-origin: center center center !important;
 }
 
@@ -80,19 +86,25 @@
     transition: transform 0.3s;
     transform-style: preserve-3d;
     transform: rotateY(var(--BY));
+    cursor: pointer;
     transform-origin: center center center !important;
 }
 .b{
     background-color: var(--clr-primary) !important;
 }
+.w{background-color: darkblue;}
+.r{background-color: darkred;}
+.g{background-color: darkgreen;}
+.y{background-color: yellow;}
+.p{background-color: rgb(65, 0, 65);}
+
+
 .d{
-    -webkit-box-shadow: 0px 0px 27px 9px rgba(0,0,0,0.67); 
-    box-shadow: 0px 0px 27px 9px rgba(0,0,0,0.67);
+    -webkit-box-shadow:inset 0px 0px 27px 9px rgba(0,0,0,0.67); 
+    box-shadow:inset 0px 0px 27px 9px rgba(0,0,0,0.67);
 }
 
 .a{ background-image: url("../../Assets/giphy.gif"); }
-
-
 
 
 /* Cube Holder Bottom */
@@ -121,9 +133,3 @@
 .cube-face-bottom-top { transform: rotateX(-90deg) translateZ(-10px); }
 
 
-
-.f1{
-    background-image: url("../../Assets/gif1.gif");
-    background-size: cover;
-    transform: rotate(180deg);
-}
