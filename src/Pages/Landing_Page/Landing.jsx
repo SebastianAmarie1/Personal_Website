@@ -11,31 +11,47 @@ function App() {
   const { currentPhase } = useCtx()
 
   const [solve, setSolve] = useState(false)
+  const [startbeam, setStartBeam] = useState(false)
 
   const handleSolve = () => {
+    setTimeout(() => {
+      setStartBeam(true)
+    },1500)
     setSolve(true)
   }
 
-  console.log(solve)
 
   return (
     <>
-    <LandingIntro />
+    {/*<LandingIntro />*/}
     <div className="landing-main">
       <h1 className="landing-cube-title">The Cube</h1>
       <div className="landing-cube-solve">
         <p className="code">Cant Solve?</p>
         <h1 onClick={handleSolve} className="code">Solve();</h1>
       </div>
+      <div className="landing-wall" />
 
+      <div className="landing-floor solid" />
+      <div className="landing-floor">
+        {startbeam &&
+          <div className="landing-floor-beam appear"></div>
+        }
+      </div>
+      {startbeam &&
+        <>
+          <div className="landing-cube-shadow appear fade"></div>
+          <div className="landing-cube-beam appear" /> 
+        </>
+      }
       
 
-    { currentPhase==="Landing Page" &&
+    
       <div className="landing-cube">
-        <SingleCube solve={solve} handleSolve={handleSolve}/>
+        <SingleCube solve={solve} handleSolve={handleSolve} startbeam={startbeam}/>
         <div className="landing-cube-blur fcc" />
       </div>
-    }
+    
     </div>
     </>
   );

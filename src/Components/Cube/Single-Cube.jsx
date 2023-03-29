@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 
 import "./Single-Cube-css.css"
 
-function SingleCube({solve, handleSolve}) {
+function SingleCube({solve, handleSolve, startbeam}) {
 
   const [isSolved, setIsSolved] = useState(false)
   const [isDragging, setIsDragging] = useState(false);
@@ -143,7 +143,7 @@ function SingleCube({solve, handleSolve}) {
   return (
     <>
       {/*Bottom holder cube*/}
-      <div className="cube">
+      <div className={`cube ${startbeam && 'abduction'}`}>
 
           {/* Bottom Holder Cube*/}
           <div style={{'--BY': bottomDegrees + 'deg'}} className="cube-holder-bottom-container"
