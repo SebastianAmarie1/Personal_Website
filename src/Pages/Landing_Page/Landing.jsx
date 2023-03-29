@@ -12,15 +12,22 @@ function App() {
 
   const [solve, setSolve] = useState(false)
   const [startbeam, setStartBeam] = useState(false)
+  const [beam, setBeam] = useState(false)
 
   const handleSolve = () => {
     setTimeout(() => {
       setStartBeam(true)
+      setBeam(true)
     },1500)
+
+    setTimeout(() => {
+      setBeam(false)
+    },7500)
+
     setSolve(true)
   }
 
-
+  console.log(beam)
   return (
     <>
     {/*<LandingIntro />*/}
@@ -34,14 +41,14 @@ function App() {
 
       <div className="landing-floor solid" />
       <div className="landing-floor">
-        {startbeam &&
-          <div className="landing-floor-beam appear"></div>
+        {startbeam && beam &&
+          <div className={`landing-floor-beam appear`}></div>
         }
       </div>
-      {startbeam &&
+      {startbeam && beam &&
         <>
-          <div className="landing-cube-shadow appear fade"></div>
-          <div className="landing-cube-beam appear" /> 
+          <div className={`landing-cube-shadow appear fade`}></div>
+          <div className={`landing-cube-beam appear`} /> 
         </>
       }
       

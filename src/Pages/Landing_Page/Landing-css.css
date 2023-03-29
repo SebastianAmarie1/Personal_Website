@@ -80,7 +80,7 @@
     background-color: white;
     box-shadow: inset 30px 10px 15px 100px #000000;
     transform-style: preserve-3d;
-    transform: perspective(30px) rotateY(75deg) rotateZ(90deg);
+    transform: perspective(30px) rotateY(89deg) rotateZ(90deg);
 }
 
 .landing-floor-beam{

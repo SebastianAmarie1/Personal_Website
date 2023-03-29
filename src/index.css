@@ -35,6 +35,9 @@ pre{
     display: block !important;
 }
 
+.hide{
+  display: none;
+}
 /* Navbar */
 body::-webkit-scrollbar {
   width: 3px;
