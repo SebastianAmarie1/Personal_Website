@@ -44,7 +44,7 @@ function LandingIntro() {
               <div style={{'--index': 1}}><pre className="landing-intro-func">Function Start():</pre></div> 
               <div style={{'--index': 4}}><pre>Explosion();</pre></div> 
               <div style={{'--index': 7}}><pre>Login();</pre></div>
-              <div style={{'--index': 9}}><pre>LandingPage();</pre></div>
+              <div style={{'--index': 9}}><pre>Cube();</pre></div>
             </h1>
           </div>
 

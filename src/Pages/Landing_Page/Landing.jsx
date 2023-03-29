@@ -30,36 +30,38 @@ function App() {
   console.log(beam)
   return (
     <>
-    {/*<LandingIntro />*/}
-    <div className="landing-main">
-      <h1 className="landing-cube-title">The Cube</h1>
-      <div className="landing-cube-solve">
-        <p className="code">Cant Solve?</p>
-        <h1 onClick={handleSolve} className="code">Solve();</h1>
-      </div>
-      <div className="landing-wall" />
+    <LandingIntro />
+    {currentPhase === "Cube" &&
+      <div className="landing-main">
+        <h1 className="landing-cube-title">The Cube</h1>
+        <div className="landing-cube-solve">
+          <p className="code">Cant Solve?</p>
+          <h1 onClick={handleSolve} className="code">Solve();</h1>
+        </div>
+        <div className="landing-wall" />
 
-      <div className="landing-floor solid" />
-      <div className="landing-floor">
+        <div className="landing-floor solid" />
+        <div className="landing-floor">
+          {startbeam && beam &&
+            <div className={`landing-floor-beam appear`}></div>
+          }
+        </div>
         {startbeam && beam &&
-          <div className={`landing-floor-beam appear`}></div>
+          <>
+            <div className={`landing-cube-shadow appear fade`}></div>
+            <div className={`landing-cube-beam appear`} /> 
+          </>
         }
-      </div>
-      {startbeam && beam &&
-        <>
-          <div className={`landing-cube-shadow appear fade`}></div>
-          <div className={`landing-cube-beam appear`} /> 
-        </>
-      }
-      
+        
 
-    
-      <div className="landing-cube">
-        <SingleCube solve={solve} handleSolve={handleSolve} startbeam={startbeam}/>
-        <div className="landing-cube-blur fcc" />
+      
+        <div className="landing-cube">
+          <SingleCube solve={solve} handleSolve={handleSolve} startbeam={startbeam}/>
+          <div className="landing-cube-blur fcc" />
+        </div>
+      
       </div>
-    
-    </div>
+    }
     </>
   );
 }
