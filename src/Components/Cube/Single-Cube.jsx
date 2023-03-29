@@ -2,12 +2,12 @@ import React, { useState, useRef, useEffect } from "react";
 
 import "./Single-Cube-css.css"
 
-function SingleCube() {
+function SingleCube({solve, handleSolve}) {
 
   const [isSolved, setIsSolved] = useState(false)
   const [isDragging, setIsDragging] = useState(false);
   const [currentPos, setCurrentPos] = useState(null)
-  const [topDegrees, setTopDegrees] = useState(80)
+  const [topDegrees, setTopDegrees] = useState(100)
   const [centerDegrees, setCenterDegrees] = useState(-25)
   const [bottomDegrees, setBottomDegrees] = useState(0)
   const containerRef = useRef(null);
@@ -23,12 +23,21 @@ function SingleCube() {
       Math.abs(tDegree - bDegree) <= 10
     ) {
       setIsSolved(true)
+      handleSolve(true)
       setTopDegrees(cDegree)
       setCenterDegrees(cDegree)
       setBottomDegrees(cDegree)
     }
 
   }, [topDegrees, centerDegrees, bottomDegrees])
+
+  useEffect(() => {
+    if (solve){
+      setTopDegrees(40)
+      setCenterDegrees(40)
+      setBottomDegrees(40)
+    }
+  },[solve])
 
   function handleMouseDown() {
     if (isSolved){

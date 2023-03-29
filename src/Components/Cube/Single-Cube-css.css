@@ -13,7 +13,7 @@
     transition: transform 1s;
     transform: 
     translateX(50px) translateY(0px) translateZ(-200px) 
-    rotateX(-25deg) rotateY(50deg) rotateZ(-5deg);
+    rotateX(-25deg) rotateY(60deg) rotateZ(-5deg);
     
 }
 
