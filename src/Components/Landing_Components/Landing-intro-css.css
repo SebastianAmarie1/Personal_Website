@@ -36,7 +36,7 @@
     overflow: hidden;
     height: 40px;
     width: 100%;
-    animation: typewriter 6s steps(20) forwards;
+    animation: typewriter 3s steps(20) forwards;
     animation-delay: calc(var(--index) * 1s);
 }
 .landing-intro-func{
@@ -53,7 +53,7 @@
     opacity: 0;
     overflow: hidden;
     cursor: pointer;
-    animation: typewriterS 6s steps(17) forwards;
+    animation: typewriterS 3s steps(17) forwards;
     animation-delay: calc(var(--index) * 1s);
 }
 

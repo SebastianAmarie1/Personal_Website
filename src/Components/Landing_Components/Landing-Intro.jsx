@@ -42,13 +42,13 @@ function LandingIntro() {
           <div className="landing-intro-function fcc">
             <h1 className="code">
               <div style={{'--index': 1}}><pre className="landing-intro-func">Function Start():</pre></div> 
-              <div style={{'--index': 4}}><pre>Explosion();</pre></div> 
-              <div style={{'--index': 7}}><pre>Login();</pre></div>
-              <div style={{'--index': 9}}><pre>Cube();</pre></div>
+              <div style={{'--index': 3}}><pre>Explosion();</pre></div> 
+              <div style={{'--index': 5}}><pre>Login();</pre></div>
+              <div style={{'--index': 7}}><pre>Cube();</pre></div>
             </h1>
           </div>
 
-          <h1 style={{'--index': 12}} onClick={handleStart} className="code landing-intro-start"><pre className="landing-intro-func">Start();</pre></h1>
+          <h1 style={{'--index': 8}} onClick={handleStart} className="code landing-intro-start"><pre className="landing-intro-func">Start();</pre></h1>
           {start &&
             <div className="loading code">
               <span>Performing {currentPhase} </span>

@@ -18,6 +18,7 @@
 
 
 .home-main{
+    position: relative;
     height: 100vh;
     width: 100%;
     background-color: var(--clr-secondary);
@@ -26,15 +27,22 @@
     padding-bottom: 2%;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .home-main h1{
+    position: relative;
+    z-index: 2;
     font-size: clamp(40px,10vw, 80px);
 }
 .home-main h2{
+    position: relative;
+    z-index: 2;
     font-size: clamp(30px, 5vw, 50px);
 }
 .home-main p {
+    position: relative;
+    z-index: 2;
     width: 50%;
     text-align: justify;
     font-size: clamp(14px, 1vw, 16px);
@@ -71,7 +79,40 @@
     max-height: 50px;
     aspect-ratio: 1/1;
     object-fit: cover;
+}
 
+.socials{
+    max-width: 35px;
+    max-height: 35px;
+    cursor: pointer;
+}
+
+.home-socials{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5vw;
+    margin-bottom: 5vh;
+}
+
+.home-gif-container{
+    position: absolute;
+    top: calc(40% - 175px);
+    left: calc(70% - 175px);
+    transform-origin: center center;
+    transform: rotate(45deg);
+    background-color: rgb(158, 158, 158);
+    height: 350px;
+    width: 350px;
+    border: 5px solid var(--clr-contrast);
+    overflow: hidden;
+    filter:brightness(0.7)  
+}
+
+.home-gif{
+    transform: rotate(-45deg) translate(-25px, 0px);
+    transform-origin: center;
+      
 }
 
 
@@ -82,9 +123,10 @@
     .home-image-man{
         width: 100%;
     }
-    .home-lang-img{
-        max-width: 50px;
-        max-height: 50px;
+
+    .home-gif-container{
+        top: calc(50% - 175px);
+        left: calc(50% - 175px);
     }
 }
 
