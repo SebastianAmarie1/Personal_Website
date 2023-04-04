@@ -7,6 +7,9 @@ import Home from "./Pages/Homepage/Home"
 function App() {
   return (
     <>
+      <div className="placeholder">
+        <h1>This website is a work in progress</h1>
+      </div>
       <Landing />
     </>
   );

@@ -17,6 +17,18 @@
     --clr-white: #ffffff;
 }
 
+.placeholder{
+  position: absolute;
+  top:0;
+  right:0;
+  z-index: 10000;
+  padding: 1em;
+}
+.placeholder h1{
+  color: red;
+  font-size: 16px;
+}
+
 .fcc{
     display: flex;
     align-items: center;
